@@ -1,17 +1,21 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.options import Options
 from pages.sale_page import SalePage
 from pages.customer_login import CustomerLogin
 import pytest
-from time import sleep
+# import random
+# from time import sleep
 
 
 @pytest.fixture()
 def driver():
-    chrome_driver = webdriver.Chrome()
+    options = Options()
+    options.add_argument("--headless")
+    chrome_driver = webdriver.Chrome(options=options)
     chrome_driver.maximize_window()
     chrome_driver.implicitly_wait(3)
     yield chrome_driver
-    sleep(3)
+    # chrome_driver.save_screenshot(f"{str(random.randint(100, 10000))}.png")
 
 
 @pytest.fixture()
