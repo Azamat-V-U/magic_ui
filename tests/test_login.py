@@ -1,5 +1,7 @@
+import pytest
 
 
+@pytest.mark.smoke
 def test_incorrect_login(login_page):
     # login_page = CustomerLogin(driver)
     login_page.open_page()
@@ -10,6 +12,7 @@ def test_incorrect_login(login_page):
     )
 
 
+@pytest.mark.regression
 def test_correct_email_with_incorrect_password(login_page):
     # login_page = CustomerLogin(driver)
     login_page.open_page()
