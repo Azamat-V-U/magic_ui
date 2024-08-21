@@ -27,5 +27,15 @@ jobs:
           python-version: '3.10'
       - name: Install dependencies
         run: pip install -r requirements.txt
-      - name: run tests
-        run: pytest      
+      - name: run all tests
+        if: "github.event.inputs.deployment_target == 'all'"
+        run: pytest -v
+      - name: run smoke tests
+        if: "github.event.inputs.deployment_target == 'smoke'"
+        run: pytest -v -m smoke
+      - name: run regression tests
+        if: "github.event.inputs.deployment_target == 'regression'"
+        run: pytest -v -m regression
+      - name: run extended tests
+        if: "github.event.inputs.deployment_target == 'extended'"
+        run: pytest -v -m extended    
