@@ -4,7 +4,6 @@ from pages.sale_page import SalePage
 from pages.customer_login import CustomerLogin
 import pytest
 # import random
-# from time import sleep
 
 
 @pytest.fixture()
