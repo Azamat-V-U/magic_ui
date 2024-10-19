@@ -14,10 +14,11 @@ def driver():
     options.add_argument("--no-sandbox")
     options.add_argument("--disable-dev-shm-usage")
     chrome_driver = webdriver.Chrome(options=options)
+    # chrome_driver = webdriver.Chrome()
     chrome_driver.maximize_window()
     chrome_driver.implicitly_wait(3)
     yield chrome_driver
-    chrome_driver.save_screenshot(f"{str(random.randint(100, 10000))}.png")
+    # chrome_driver.save_screenshot(f"{str(random.randint(100, 10000))}.png")
 
 
 @pytest.fixture()
